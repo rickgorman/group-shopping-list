@@ -1,15 +1,42 @@
+import * as ApiUtil from '../util/basket_api_util';
+
 export const RECEIVE_BASKET = "RECEIVE_BASKET";
 export const CLEAR_BASKET = "CLEAR_BASKET";
+export const RECEIVE_BASKET_ERRORS = "RECEIVE_BASKET_ERRORS";
 
-export const receiveBasket = (basket) => {
+const receiveBasket = (basket) => {
   return {
     type: RECEIVE_BASKET,
     basket
   };
 };
 
-export const clearBasket = () => {
+const receiveBasketErrors = (errors) => {
   return {
-    type: CLEAR_BASKET
+    type: RECEIVE_BASKET_ERRORS,
+    errors
   };
+};
+
+// here we give a default value of 1 for the 'main' basket
+export const fetchBasket = (id = 1) => dispatch => {
+  ApiUtil.fetchBasket(id)
+  .then((basket) => {
+    return dispatch(receiveBasket(basket));
+  })
+  .fail((errors) => {
+    return dispatch(receiveBasketErrors(errors.responseJSON));
+  });
+};
+
+export const clearBasket = (id = 1) => dispatch => {
+  ApiUtil.clearBasket(id)
+  .then((basket) => {
+    return {
+      type: CLEAR_BASKET
+    };
+  })
+  .fail((errors) => {
+    return dispatch(receiveBasketErrors(errors));
+  });
 };
