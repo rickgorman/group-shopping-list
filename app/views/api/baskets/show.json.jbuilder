@@ -1,2 +1,5 @@
 json.extract! @basket, :id, :name
-json.items @basket.items_with_quantities
+
+json.ordered_items do
+  json.array! @basket.items_with_quantities
+end

@@ -1,1 +1,1 @@
-json.extract! @item, :id, :name
+json.partial! 'api/items/show', item: @item
