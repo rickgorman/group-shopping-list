@@ -21,7 +21,12 @@ class Api::BasketsController < ApplicationController
   end
 
   def destroy
-    # intentionally left blank
+    @basket = Basket.find(params[:id])
+    if @basket.basket_items.delete_all
+      render "api/baskets/show"
+    else
+      render json: @basket.errors.messages, status: 422
+    end
   end
 
   private

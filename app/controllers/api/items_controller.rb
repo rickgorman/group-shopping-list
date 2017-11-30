@@ -14,7 +14,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def index
-    @basket = Basket.find(params[:basket_id])
+    # handled as BasketsController#show
   end
 
   def update
