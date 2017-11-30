@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130031930) do
+ActiveRecord::Schema.define(version: 20171130080810) do
 
   create_table "basket_items", force: :cascade do |t|
-    t.integer "basket_id", null: false
-    t.integer "item_id", null: false
+    t.integer "basket_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["basket_id"], name: "index_basket_items_on_basket_id"
