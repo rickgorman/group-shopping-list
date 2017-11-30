@@ -15,6 +15,8 @@ Basket.destroy_all
 main = Basket.create(
   name: "main"
 )
+main.id = 1
+main.save
 
 #########
 # Items #
@@ -42,11 +44,11 @@ BasketItem.destroy_all
 
 bi1 = BasketItem.create(
   basket_id: main.id,
-  item_id: lettuce.id
+  item_id: tomato.id
 )
 bi2 = BasketItem.create(
   basket_id: main.id,
-  item_id: tomato.id
+  item_id: lettuce.id
 )
 bi3 = BasketItem.create(
   basket_id: main.id,

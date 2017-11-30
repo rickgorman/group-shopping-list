@@ -1,7 +1,8 @@
 class Basket < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
-  has_many :basket_items
+  has_many :basket_items,
+    dependent: :delete_all
 
   has_many :items,
     through: :basket_items
