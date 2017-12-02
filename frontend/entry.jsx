@@ -6,6 +6,8 @@ import Root from './components/root';
 // testing imports below -- remove when done
 
 import * as BasketActions from './actions/basket_actions';
+import * as BasketApi from './util/basket_api_util';
+import * as ItemApi from './util/item_api_util';
 
 ////////////////////////////////////////////
 
@@ -14,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // add functions onto window for testing -- remove when done
   window.BasketActions = BasketActions;
+  window.BasketApi = BasketApi;
   window.dispatch = store.dispatch;
+  window.ItemApi = ItemApi;
 
   ///////////////////////
 
