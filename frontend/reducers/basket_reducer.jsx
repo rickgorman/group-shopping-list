@@ -3,6 +3,12 @@ import {
   CLEAR_BASKET
 } from '../actions/basket_actions';
 
+import {
+  REMOVE_ITEM
+} from '../actions/item_actions';
+
+import merge from 'lodash/merge';
+
 const BasketReducer = (oldState = [], action) => {
   Object.freeze(oldState);
 
@@ -14,6 +20,16 @@ const BasketReducer = (oldState = [], action) => {
     case CLEAR_BASKET:
       // discard old basket
       return [];
+
+    case REMOVE_ITEM:
+      // remove items as they are deleted
+      const { item } = action;
+
+      let newState = merge({}, oldState);
+      newState.orderedItems = newState.orderedItems.filter((el) => {
+        return el.id !== item.id;
+      });
+      return newState;
 
     default:
       return oldState;
