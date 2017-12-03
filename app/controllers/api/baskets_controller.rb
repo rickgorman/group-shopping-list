@@ -22,6 +22,7 @@ class Api::BasketsController < ApplicationController
 
   def destroy
     @basket = Basket.find(params[:id])
+    # empty out our join table entries
     if @basket.basket_items.delete_all
       render "api/baskets/show"
     else
