@@ -25,7 +25,7 @@ export const fetchBasket = (id = 1) => dispatch => {
     return dispatch(receiveBasket(basket));
   })
   .fail((errors) => {
-    return dispatch(receiveBasketErrors(errors.responseJSON));
+    return dispatch(receiveBasketErrors(errors.statusText));
   });
 };
 

@@ -49,7 +49,7 @@ export const fetchItems = (basketId = 1) => dispatch => {
     return dispatch(receiveItems(resItems));
   })
   .fail((errors) => {
-    return dispatch(receiveItemErrors(errors.responseJSON));
+    return dispatch(receiveItemErrors(errors.statusText));
   });
 };
 
@@ -69,6 +69,6 @@ export const destroyItem = (item) => dispatch => {
     return dispatch(removeItem(item));
   })
   .fail((errors) => {
-    return dispatch(receiveItemErrors(errors));
+    return dispatch(receiveItemErrors(errors.statusText));
   });
 };
