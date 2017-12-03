@@ -5,7 +5,8 @@ class Basket < ApplicationRecord
     dependent: :delete_all
 
   has_many :items,
-    through: :basket_items
+    through: :basket_items,
+    dependent: :destroy
 
   # Returns an array of objects grouped so as to show quantity. An array is used
   # to preserve ordering.
