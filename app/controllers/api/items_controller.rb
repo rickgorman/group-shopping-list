@@ -28,7 +28,8 @@ class Api::ItemsController < ApplicationController
   end
 
   def index
-    # handled as BasketsController#show
+    @basket = Basket.find(params[:basket_id])
+    render "api/items/index"
   end
 
   def update
