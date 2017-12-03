@@ -1,11 +1,25 @@
 class Api::ItemsController < ApplicationController
   def create
     @basket = Basket.find(params[:basket_id])
-    @item = @basket.items.create(item_params)
-    if @item.save
+
+    # if an item with this name exists, use the existing item
+    if @item = Item.find_by_name(item_params[:name])
+      # handle malformed requests
+      unless @item.save
+        render json: @item.errors.messages, status: 422
+        return
+      end
+      # add the existing item to our basket (works with multiple copies)
+      @basket.items << @item
       render "api/items/show"
+    # otherwise create a new item
     else
-      render json: @item.errors.messages, status: 422
+      @item = @basket.items.create(item_params)
+      if @item.save
+        render "api/items/show"
+      else
+        render json: @item.errors.messages, status: 422
+      end
     end
   end
 
