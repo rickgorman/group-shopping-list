@@ -7,6 +7,7 @@ import Root from './components/root';
 
 import * as BasketActions from './actions/basket_actions';
 import * as BasketApi from './util/basket_api_util';
+import * as ItemActions from './actions/item_actions';
 import * as ItemApi from './util/item_api_util';
 
 ////////////////////////////////////////////
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.BasketApi = BasketApi;
   window.dispatch = store.dispatch;
   window.ItemApi = ItemApi;
+  window.ItemActions = ItemActions;
 
   ///////////////////////
 
