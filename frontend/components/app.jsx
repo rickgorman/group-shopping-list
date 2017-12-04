@@ -4,10 +4,9 @@ import BasketContainer from './basket_container.jsx'
 class App extends React.Component {
   render() {
     return(
-      <main>
+      <div className='app-wrapper'>
         <BasketContainer basketId={1} />
-        <p></p>
-      </main>
+      </div>
     );
   }
 }

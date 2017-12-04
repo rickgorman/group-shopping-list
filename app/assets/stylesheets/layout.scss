@@ -1,6 +1,31 @@
+main {
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.0)
+      ),
+    image_url('ingredients-background.jpeg');
+  background-size: cover;
+}
+
+div.app-wrapper {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
 .grocery-item-quantity,
 .grocery-item-name {
   font-size: 1.3em
+}
+
+.basket-grid {
+  border: 1px solid #c0c0c0;
+  border-radius: 7px;
+  background: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 500px;
+  margin: 0 auto;
 }
 
 span.grocery-item-quantity {
