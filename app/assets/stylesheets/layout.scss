@@ -1,3 +1,6 @@
+
+/* App */
+
 main {
   background:
     linear-gradient(
@@ -13,6 +16,8 @@ div.app-wrapper {
   display: flex;
   justify-content: center;
 }
+
+/* Basket */
 
 .grocery-item-quantity,
 .grocery-item-name {
@@ -40,4 +45,16 @@ span.grocery-item-quantity {
 
 .ui.horizontal.list > .item {
   margin-left: 0 !important;
+}
+
+/* Footer */
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  background: #c0c0c0;
+  color: #000000;
+  padding: 3px 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px gray;
 }
