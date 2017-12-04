@@ -1,11 +1,11 @@
 import React from 'react';
-import Basket from './basket.jsx'
+import BasketContainer from './basket_container.jsx'
 
 class App extends React.Component {
   render() {
     return(
       <main>
-        <Basket basketId={1} />
+        <BasketContainer basketId={1} />
         <p></p>
       </main>
     );
