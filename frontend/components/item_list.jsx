@@ -1,5 +1,5 @@
 import React from 'react';
-import GroceryItem from './grocery_item.jsx';
+import GroceryItemContainer from './grocery_item_container.jsx';
 
 import {
   Button, Container, Grid, Header, Icon, Image, Item,
@@ -15,13 +15,11 @@ class ItemList extends React.Component {
     let groceryItems;
     if(this.props.items) {
       groceryItems = this.props.items.map((item) => {
-        const { id, name, quantity } = item;
+        const { id } = item;
         return(
           <Segment key={id}>
-            <GroceryItem
-              key={id}
-              name={name}
-              quantity={quantity} />
+            <GroceryItemContainer
+              item={item}/>
           </Segment>
         );
       });

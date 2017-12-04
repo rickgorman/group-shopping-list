@@ -5,9 +5,24 @@ import {
 } from 'semantic-ui-react';
 
 class GroceryItem extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
 
-    const { name, quantity } = this.props;
+    this.decrementQuantity = this.decrementQuantity.bind(this);
+    this.incrementQuantity = this.incrementQuantity.bind(this);
+  }
+
+  decrementQuantity() {
+
+  }
+
+  incrementQuantity() {
+    const { item } = this.props;
+    this.props.createItem(item);
+  }
+
+  render() {
+    const { id, name, quantity } = this.props.item;
 
     const isNegative = !quantity;
     const minusButtonIcon = !quantity ? 'remove' : 'minus';
@@ -20,10 +35,15 @@ class GroceryItem extends React.Component {
           verticalAlign='middle'>
           <List horizontal floated='left'>
             <List.Item>
-              <Button negative={isNegative} icon={minusButtonIcon} />
+              <Button
+                onClick={this.decrementQuantity}
+                negative={isNegative}
+                icon={minusButtonIcon} />
             </List.Item>
             <List.Item>
-              <Button icon='plus' />
+              <Button
+                onClick={this.incrementQuantity}
+                icon='plus' />
             </List.Item>
             <List.Item>
               <span className='grocery-item-quantity'>
