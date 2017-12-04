@@ -47,6 +47,20 @@ span.grocery-item-quantity {
   margin-left: 0 !important;
 }
 
+/* UI */
+
+.add-item-input {
+  width: 350px;
+}
+
+.add-item-input > input {
+  width: 100%;
+}
+
+button.clear-basket-button {
+  margin-top: 2em !important;
+}
+
 /* Footer */
 
 .footer {
