@@ -5,32 +5,22 @@ import Basket from './basket';
 import {
   clearBasket,
   fetchBasket
- } from '../actions/basket_actions';
+} from '../actions/basket_actions';
 
-const mapBasketOrderedItemsToItems = (state) => {
-  const { orderedItems } = state.basket;
-  if(!orderedItems) {
-    return false;
-  } else {
-    return orderedItems.map((item) => {
-      return {
-        item: state.items[item],
-        quantity: item.quantity
-      };
-    });
-  }
-};
+import { fetchItems } from '../actions/item_actions';
 
 const mapStateToProps = (state, newProps) => {
   return {
-    items: mapBasketOrderedItemsToItems(state),
+    basket: state.basket,
+    items: state.items,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     clearBasket: (id) => dispatch(clearBasket()),
-    fetchBasket: (id) => dispatch(fetchBasket())
+    fetchBasket: (id) => dispatch(fetchBasket()),
+    fetchItems:  (id) => dispatch(fetchItems()),
   };
 };
 
