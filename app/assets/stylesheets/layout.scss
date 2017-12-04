@@ -15,6 +15,8 @@ div.app-wrapper {
   padding-top: 25px;
   display: flex;
   justify-content: center;
+  z-index: 5;
+  margin-bottom: 50px !important;
 }
 
 /* Basket */
@@ -65,7 +67,9 @@ button.clear-basket-button {
 
 .footer {
   position: absolute;
-  bottom: 15px;
+  top: 5px;
+  right: 5px;
+
   background: #c0c0c0;
   color: #000000;
   padding: 3px 10px;
