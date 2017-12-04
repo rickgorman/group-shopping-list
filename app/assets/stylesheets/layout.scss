@@ -1,0 +1,18 @@
+.grocery-item-quantity,
+.grocery-item-name {
+  font-size: 1.3em
+}
+
+span.grocery-item-quantity {
+  margin-left: 1.25em;
+}
+
+.grocery-item-grid-column {
+  padding: 0 !important;
+  padding-left: 1em !important;
+  vertical-align: middle;
+}
+
+.ui.horizontal.list > .item {
+  margin-left: 0 !important;
+}
