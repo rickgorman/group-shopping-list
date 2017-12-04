@@ -16,7 +16,10 @@ class Basket extends React.Component {
 
   clearBasket(e) {
     e.preventDefault();
-    this.props.clearBasket();
+    this.props.clearBasket()
+      .then((response) => {
+        this.props.fetchBasket();
+      });
   }
 
   componentWillMount() {

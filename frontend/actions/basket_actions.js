@@ -20,7 +20,7 @@ const receiveBasketErrors = (errors) => {
 
 // here we give a default value of 1 for the 'main' basket
 export const fetchBasket = (id = 1) => dispatch => {
-  ApiUtil.fetchBasket(id)
+  return ApiUtil.fetchBasket(id)
   .then((basket) => {
     return dispatch(receiveBasket(basket));
   })
@@ -30,7 +30,7 @@ export const fetchBasket = (id = 1) => dispatch => {
 };
 
 export const clearBasket = (id = 1) => dispatch => {
-  ApiUtil.clearBasket(id)
+  return ApiUtil.clearBasket(id)
   .then((basket) => {
     return {
       type: CLEAR_BASKET

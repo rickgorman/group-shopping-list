@@ -18,9 +18,15 @@ const mapStateToProps = (state, newProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clearBasket: (id) => dispatch(clearBasket()),
-    fetchBasket: (id) => dispatch(fetchBasket()),
-    fetchItems:  (id) => dispatch(fetchItems()),
+    clearBasket: (id) => {
+      return dispatch(clearBasket());
+    },
+    fetchBasket: (id) => {
+      return dispatch(fetchBasket());
+    },
+    fetchItems:  (id) =>  {
+      return dispatch(fetchItems());
+    },
   };
 };
 
