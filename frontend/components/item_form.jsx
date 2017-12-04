@@ -27,7 +27,7 @@ class ItemForm extends React.Component {
         <Input
           ref={(input) => { this.textInput = input; }}
           className='add-item-input'
-          placeholder="Add an item..."
+          placeholder="Start typing..."
         />
         <Button
           positive
