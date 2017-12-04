@@ -1,5 +1,10 @@
 import React from 'react';
 
+import {
+  Form, Button, Input
+} from 'semantic-ui-react';
+
+
 class ItemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,18 +17,24 @@ class ItemForm extends React.Component {
     console.log(e);
   }
 
+  componentDidMount() {
+    this.textInput.focus();
+  }
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Add an item...."
+      <Form onSubmit={this.handleSubmit}>
+        <Input
+          ref={(input) => { this.textInput = input; }}
+          className='add-item-input'
+          placeholder="Add an item..."
         />
-        <button onClick={this.handleSubmit}>
+        <Button
+          positive
+          onClick={this.handleSubmit}>
           Add
-        </button>
-      </form>
+        </Button>
+      </Form>
     );
   }
 }
