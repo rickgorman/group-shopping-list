@@ -34,7 +34,7 @@ const removeItem = (item) => {
 };
 
 export const createItem = (item) => dispatch => {
-  ApiUtil.createItem(item)
+  return ApiUtil.createItem(item)
   .then((resItem) => {
     return dispatch(receiveItem(resItem));
   })
@@ -44,7 +44,7 @@ export const createItem = (item) => dispatch => {
 };
 
 export const fetchItems = (basketId = 1) => dispatch => {
-  ApiUtil.fetchItems(basketId)
+  return ApiUtil.fetchItems(basketId)
   .then((resItems) => {
     return dispatch(receiveItems(resItems));
   })
@@ -54,7 +54,7 @@ export const fetchItems = (basketId = 1) => dispatch => {
 };
 
 export const updateItem = (item) => dispatch => {
-  ApiUtil.updateItem(item)
+  return ApiUtil.updateItem(item)
   .then((resItem) => {
     return dispatch(receiveItem(resItem));
   })
@@ -64,7 +64,7 @@ export const updateItem = (item) => dispatch => {
 };
 
 export const destroyItem = (item) => dispatch => {
-  ApiUtil.destroyItem(item)
+  return ApiUtil.destroyItem(item)
   .then((resItem) => {
     return dispatch(removeItem(item));
   })
