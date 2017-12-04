@@ -7,7 +7,7 @@ export const fetchBasket = (id) => {
 
 export const clearBasket = (id) => {
   return $.ajax({
-    method: 'get',
-    url: `api/baskets/${id}/clear`
+    method: 'delete',
+    url: `api/baskets/${id}`
   });
 };
