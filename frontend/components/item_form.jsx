@@ -9,12 +9,32 @@ class ItemForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      name: ''
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateName = this.updateName.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+
+    this.props.createItem({
+      name: this.state.name,
+      quantity: 1
+    });
+
+    this.setState({
+      name: ''
+    });
+
+  }
+
+  updateName(e) {
+    this.setState({
+      name: e.target.value,
+    });
   }
 
   componentDidMount() {
@@ -25,9 +45,11 @@ class ItemForm extends React.Component {
     return(
       <Form onSubmit={this.handleSubmit}>
         <Input
+          value={this.state.name}
           ref={(input) => { this.textInput = input; }}
           className='add-item-input'
           placeholder="Start typing..."
+          onChange={this.updateName}
         />
         <Button
           positive
