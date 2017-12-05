@@ -30,20 +30,21 @@ class Basket extends React.Component {
   }
 
   render() {
-    const { items, basket } = this.props;
-    const { orderedItems } = basket;
+    const { items, basket, itemOrdering } = this.props;
+    const { basketItems } = basket;
     let mappedItems;
-
-    if(orderedItems) {
-      mappedItems = orderedItems.map((item) => {
+    if(basketItems && itemOrdering) {
+      mappedItems = Object.keys(itemOrdering).sort().map((orderId) => {
         // check to see if we have this item in the store
-        if(!items[item.id]) {
+        let id = itemOrdering[orderId];
+        let item = items[id];
+        if(!item || !items[id] || !basketItems[id]) {
           return {};
         } else {
           return {
             id: item.id,
-            name: items[item.id].name,
-            quantity: item.quantity
+            name: items[id].name,
+            quantity: basketItems[id].quantity
           };
         }
       });

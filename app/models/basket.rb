@@ -28,10 +28,11 @@ class Basket < ApplicationRecord
 SQL
 
     # clean up the results to align as JSON
-    rows.map do |row|
+    rows.each_with_index.map do |row, ordering|
       {
         id: row["items_id"],
-        quantity: row["count_all"]
+        quantity: row["count_all"],
+        ordering: ordering
       }
     end
   end

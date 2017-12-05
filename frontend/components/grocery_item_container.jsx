@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import GroceryItem from './grocery_item';
 
-import { createItem } from '../actions/item_actions';
+import {
+  createItem,
+  destroyItemInBasket
+} from '../actions/item_actions';
 
 import { fetchBasket } from '../actions/basket_actions';
 
@@ -14,10 +17,11 @@ const mapStateToProps = (state, newProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createItem: (item) => {
-      return dispatch(createItem(item))
-        .then((response) => {
-          return dispatch(fetchBasket());
-        });
+      return dispatch(createItem(item));
+    },
+
+    destroyItemInBasket: (item) => {
+      return dispatch(destroyItemInBasket(item));
     }
   };
 };

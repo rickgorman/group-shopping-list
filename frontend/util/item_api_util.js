@@ -34,3 +34,10 @@ export const destroyItem = (item) => {
     url: `api/items/${item.id}`
   });
 };
+
+export const removeItem = (item, basketId = 1) => {
+  return $.ajax({
+    method: 'delete',
+    url: `api/baskets/${basketId}/items/${item.id}`
+  });
+};

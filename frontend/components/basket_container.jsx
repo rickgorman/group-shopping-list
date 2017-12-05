@@ -13,6 +13,7 @@ const mapStateToProps = (state, newProps) => {
   return {
     basket: state.basket,
     items: state.items,
+    itemOrdering: state.basket.itemOrdering,
   };
 };
 

@@ -13,7 +13,8 @@ class GroceryItem extends React.Component {
   }
 
   decrementQuantity() {
-
+    const { item } = this.props;
+    this.props.destroyItemInBasket(item);
   }
 
   incrementQuantity() {
@@ -24,8 +25,8 @@ class GroceryItem extends React.Component {
   render() {
     const { id, name, quantity } = this.props.item;
 
-    const isNegative = !quantity;
-    const minusButtonIcon = !quantity ? 'remove' : 'minus';
+    const isNegative = quantity === 1;
+    const minusButtonIcon = quantity === 1 ? 'remove' : 'minus';
 
     return(
       <Grid columns={3} relaxed>
