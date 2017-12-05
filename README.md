@@ -1,5 +1,9 @@
 # Group Shopping List
 
+<div style="text-align: center">
+  <img src="https://raw.githubusercontent.com/rickgorman/group-shopping-list/master/media/screen-1.png?token=AEOinUa_pdTYpJ_YYjhnjHGCIyPguglOks5aL1EbwA%3D%3D" style="width:500; height=auto; border: 1px solid black;" />
+</div>
+
 ### Overview
 
 Group Shopping List is a fullstack app that helps a group of people manage a weekly shopping list.
