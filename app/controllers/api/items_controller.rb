@@ -1,6 +1,5 @@
 class Api::ItemsController < ApplicationController
   def create
-    sleep 1
     @basket = Basket.find(params[:basket_id])
 
     # if an item with this name exists, use the existing item
@@ -25,18 +24,15 @@ class Api::ItemsController < ApplicationController
   end
 
   def show
-    sleep 1
     @item = Item.find(params[:id])
   end
 
   def index
-    sleep 1
     @basket = Basket.find(params[:basket_id])
     render "api/items/index"
   end
 
   def update
-    sleep 1
     @item = Item.find(params[:id])
     if @item.update(item_params)
       render "api/items/show"
@@ -46,7 +42,6 @@ class Api::ItemsController < ApplicationController
   end
 
   def destroy
-    sleep 1
     @basket = Basket.find(params[:basket_id])
     @item = @basket.basket_items
               .where(item_id: params[:id])

@@ -1,6 +1,5 @@
 class Api::BasketsController < ApplicationController
   def create
-    sleep 1
     @basket = Basket.new(basket_params)
     if @basket.save
       render "api/baskets/show"
@@ -10,7 +9,6 @@ class Api::BasketsController < ApplicationController
   end
 
   def show
-    sleep 1
     @basket = Basket.find(params[:id])
   end
 
@@ -23,7 +21,6 @@ class Api::BasketsController < ApplicationController
   end
 
   def destroy
-    sleep 1
     @basket = Basket.find(params[:id])
     # Empty out our join table entries. Note that this triggers N+1 queries.
     #   We can either do a single DELETE query via .delete_all, or N+1 using
