@@ -1,24 +1,30 @@
-# README
+# Group Shopping List
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Overview
 
-Things you may want to cover:
+Group Shopping List is a fullstack app that helps a group of people manage a weekly shopping list.
 
-* Ruby version
+### Install / Usage
 
-* System dependencies
+* `git clone https://github.com/rickgorman/group-shopping-list.git`
+* `cd group-shopping-list`
+* `bundle install`
+* `npm install`
+* `rails db:setup`
+* `rails s`
+* open a browser and navigate to [http://localhost:3000](http://localhost:3000)
 
-* Configuration
+### The Stack
 
-* Database creation
+The app is built on Ruby/Rails/sqlite3 with a Javascript/React/Redux frontend. Semantic-UI is used for layout/styling.
 
-* Database initialization
+### Bugs/Todo:
 
-* How to run the test suite
+* Make increment/decrement actions asynchronous
+* Add multi-user support via WebSockets/Pusher
 
-* Services (job queues, cache servers, search engines, etc.)
+### License
 
-* Deployment instructions
+### Author
 
-* ...
+[Rick Gorman](https://github.com/rickgorman)
