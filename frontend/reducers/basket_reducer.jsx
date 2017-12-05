@@ -36,14 +36,23 @@ const BasketReducer = (oldState = [], action) => {
 
     case DECREMENT_ITEM_IN_BASKET:
       item = action.item;
-
-      // decrement (eventually remove) the item from basketItems
       newState = merge({}, oldState);
 
       newState.basketItems[item.id].quantity -= 1;
 
+      // remove the item when quantity hits 0
       if(newState.basketItems[item.id].quantity === 0) {
         delete newState.basketItems[item.id];
+
+        // rebuild the itemOrdering hash
+        let newItemOrderingKeys = Object.keys(newState.itemOrdering)
+          .filter(key => newState.itemOrdering[key] !== item.id);
+        let newItemOrdering = {};
+        newItemOrderingKeys.forEach(key => {
+          newItemOrdering[key] = newState.itemOrdering[key];
+        });
+
+        newState.itemOrdering = newItemOrdering;
       }
       return newState;
 
@@ -60,7 +69,7 @@ const BasketReducer = (oldState = [], action) => {
         newState.basketItems[item.id] = {
           id: item.id,
           quantity: 1,
-          ordering: newState.basketItems.length,
+          ordering: Math.max(Object.keys(newState.itemOrdering)) + 1,
         };
       }
       return newState;
