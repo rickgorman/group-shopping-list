@@ -10,6 +10,9 @@ Group Shopping List is a fullstack app that helps a group of people manage a wee
 
 ### Install / Usage
 
+* [install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+* [install npm](https://nodejs.org/en/)
+* `gem install bundle`
 * `git clone https://github.com/rickgorman/group-shopping-list.git`
 * `cd group-shopping-list`
 * `bundle install`
